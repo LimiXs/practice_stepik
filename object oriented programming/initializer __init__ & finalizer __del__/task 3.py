@@ -14,3 +14,18 @@ p2 = Point(12, 5, 'red')
 P.S. На экран в программе ничего выводить не нужно.
 https://stepik.org/lesson/701975/step/4?unit=702076
 """
+
+
+class Point:
+    def __init__(self, x, y, color='black'):
+        self.x = x
+        self.y = y
+        self.color = color
+
+
+points = []
+for i in range(0, 2000, 2):
+    points.append(Point(i, i))
+
+points[1].color = 'yellow'
+print(len(points))
