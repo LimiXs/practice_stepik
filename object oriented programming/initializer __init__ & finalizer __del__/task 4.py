@@ -17,38 +17,46 @@ ep (нижний левый) в виде кортежей (a, b) и (c, d) со�
 В списке elements обнулите координаты объектов только для класса Line.
 
 P.S. На экран в программе ничего выводить не нужно.
+https://stepik.org/lesson/701975/step/5?unit=702076
 """
 import random
 
 
 class Line:
     def __init__(self, a, b, c, d):
-        self.d = d
-        self.c = c
-        self.b = b
-        self.a = a
+        self.sp = (a, b)
+        self.ep = (c, d)
 
 
 class Rect:
     def __init__(self, a, b, c, d):
-        self.d = d
-        self.c = c
-        self.b = b
-        self.a = a
+        self.sp = (a, b)
+        self.ep = (c, d)
 
 
 class Ellipse:
     def __init__(self, a, b, c, d):
-        self.d = d
-        self.c = c
-        self.b = b
-        self.a = a
+        self.sp = (a, b)
+        self.ep = (c, d)
 
 
-elements = []
+def get_random():
+    return random.randint(1, 100)
 
-a = random.randint(1, 10)
 
-# g1 = Line(a, b, c, d)
-# g2 = Rect(a, b, c, d)
-# g3 = Ellipse(a, b, c, d)
+values = [
+    Line(get_random(), get_random(), get_random(), get_random()),
+    Rect(get_random(), get_random(), get_random(), get_random()),
+    Ellipse(get_random(), get_random(), get_random(), get_random())
+]
+
+elements = [random.choice(values) for _ in range(0, 217)]
+
+for element in elements:
+    if isinstance(element, Line):
+        element.sp = (0, 0)
+        element.ep = (0, 0)
+
+    print(element.sp, element.ep)
+
+print(len(elements))
