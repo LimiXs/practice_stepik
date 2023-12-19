@@ -30,4 +30,13 @@ def filter_lst(it, key=None):
     return res
 
 
-print(1)
+f1 = lambda x: ...
+f2 = lambda x: True if x < 0 else False
+f3 = lambda x: x >= 0
+f4 = lambda x: x in list(range(3, 6))
+
+numbers = list(map(int, input().split()))
+
+for f in [f1, f2, f3, f4]:
+    lst = filter_lst(numbers, key=f)
+    print(*lst)
