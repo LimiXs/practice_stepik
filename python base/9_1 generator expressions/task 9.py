@@ -11,7 +11,7 @@ import numpy as np
 
 a, b = map(int, input().split())
 
-f_x = (round(0.5 * pow(x, 2) - 2.0) for x in np.arange(a, b, 0.01))
+f_x = (round(0.5 * pow(x, 2) - 2.0, 2) for x in np.arange(a, b, 0.01))
 
 for _ in range(0, 20):
     print(next(f_x), end=' ')
