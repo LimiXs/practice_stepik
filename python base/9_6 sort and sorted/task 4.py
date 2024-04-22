@@ -1,6 +1,7 @@
 """
 https://stepik.org/lesson/567076/step/7?unit=561350
 """
+
 list1 = list(map(int, input().split()))
 list2 = list(map(int, input().split()))
 
