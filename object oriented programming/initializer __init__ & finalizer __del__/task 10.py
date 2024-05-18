@@ -1,11 +1,12 @@
 class Cell:
-    pass
+    def __init__(self, around_mines, mine, fl_open=False):
+        self.mine = mine
+        self.around_mines = around_mines
+        self.fl_open = False
 
 
 class GamePole:
     pass
 
 
-around_mines, mine = 4, True
-
-c1 = Cell(around_mines, mine)
+c1 = Cell(4, True)
