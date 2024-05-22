@@ -15,7 +15,13 @@ class DialogLinux:
 # здесь объявляйте класс Dialog
 class Dialog:
     def __new__(cls, *args, **kwargs):
-        pass
+        if TYPE_OS == 1:
+            obj = super().__new__(DialogWindows)
+        else:
+            obj = super().__new__(DialogLinux)
+
+        obj.name = args[0]
+        return obj
 
     def __init__(self, name):
         self.name = name
