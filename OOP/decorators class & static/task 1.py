@@ -1,6 +1,13 @@
 # https://stepik.org/lesson/701978/step/8?unit=702079
+
 class Factory:
-    pass
+    @staticmethod
+    def build_sequence():
+        return []
+
+    @staticmethod
+    def build_number(string):
+        return int(string)
 
 
 class Loader:
