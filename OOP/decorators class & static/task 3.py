@@ -4,6 +4,7 @@ https://stepik.org/lesson/701978/step/10?unit=702079
 from string import ascii_uppercase, digits
 import re
 
+
 class CardCheck:
     CHARS_FOR_NAME = ascii_uppercase + digits
     PATTERN = r'^\d{4}-\d{4}-\d{4}-\d{4}$'
