@@ -18,4 +18,3 @@ venv
 /.git/
 **/__pycache__/
 .main.py
-v_mendeleev/plot of elements.py
