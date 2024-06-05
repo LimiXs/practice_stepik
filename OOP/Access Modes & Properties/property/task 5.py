@@ -1,5 +1,6 @@
 #  https://stepik.org/lesson/701984/step/10?unit=702085
 class DecisionTree:
+    nodes = []
     """
     для описания вершин и листьев решающего дерева;
     """
@@ -8,11 +9,12 @@ class DecisionTree:
 
     @classmethod
     def predict(cls, root, x):
-        pass
+        return cls._predict(root, x)
 
     @classmethod
     def add_obj(cls, obj, node=None, left=True):
-        pass
+        cls.nodes.append(obj)
+
 
 
 class TreeObj:
