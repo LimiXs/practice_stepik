@@ -4,7 +4,7 @@ class TreeObj:
         self.indx = indx
         self.value = value
         self.__left = None
-        self__right = None
+        self.__right = None
 
     @property
     def left(self):
@@ -50,5 +50,6 @@ DecisionTree.add_obj(TreeObj(-1, "будет кодером"), v_11, False)
 DecisionTree.add_obj(TreeObj(-1, "не все потеряно"), v_12)
 DecisionTree.add_obj(TreeObj(-1, "безнадежен"), v_12, False)
 
-x = [1, 1, 0]
+x = [1, 1, 1]
 res = DecisionTree.predict(root, x)  # будет программистом
+print(res)
