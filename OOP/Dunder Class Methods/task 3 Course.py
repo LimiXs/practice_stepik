@@ -1,10 +1,26 @@
 #  https://stepik.org/lesson/701986/step/7?unit=702087
 class Course:
-    pass
+    def __init__(self, name):
+        self.name = name
+        self.modules = []
+
+    def add_module(self, module):
+        self.modules.append(module)
+
+    def remove_module(self, indx):
+        self.modules.pop(indx)
 
 
 class Module:
-    pass
+    def __init__(self, name):
+        self.name = name
+        self.lessons = []
+
+    def add_lesson(self, lesson):
+        self.lessons.append(lesson)
+
+    def remove_lesson(self, indx):
+        self.lessons.pop(indx)
 
 
 class LessonItem:
@@ -21,6 +37,14 @@ class LessonItem:
             if not isinstance(value, int) or value < 0:
                 raise TypeError("Неверный тип присваиваемых данных.")
         object.__setattr__(self, key, value)
+
+    def __getattr__(self, item):
+        return False
+
+    def __delattr__(self, item):
+        if item not in ["title", "practices",  "duration"]:
+            object.__delattr__(self, item)
+
 
 course = Course("Python ООП")
 
