@@ -1,7 +1,4 @@
 #  https://stepik.org/lesson/701987/step/6?unit=702088
-from string import ascii_lowercase, digits
-
-
 class LoginForm:
     def __init__(self, name, validators=None):
         self.name = name
