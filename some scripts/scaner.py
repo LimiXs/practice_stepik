@@ -39,8 +39,8 @@ def main(image_path):
         print(f"Найдено {len(datamatrix_codes)} Data Matrix кодов:")
         for idx, code in enumerate(datamatrix_codes):
             print(f"Data Matrix код {idx + 1}:")
-            print(f"  Данные: {code['data']}")
-            print(f"  Координаты: {code['rect']}")
+            print(f"Данные: {code['data']}")
+            print(f"Координаты: {code['rect']}")
     else:
         print("Data Matrix коды не найдены.")
 
