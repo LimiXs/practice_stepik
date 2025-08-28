@@ -1,29 +1,68 @@
 # https://stepik.org/lesson/701990/step/10?unit=702091
-class BaseMoney:
+class CentralBank:
+    rates = {'rub': 72.5, 'dollar': 1.0, 'euro': 1.15}
+
+    def __new__(cls, *args, **kwargs):
+        return
+
+    @classmethod
+    def register(cls, money):
+        money.cb = cls
+
+
+class Money:
+    EPS = 0.1
+    type_money = None
+
     def __init__(self, volume=0):
         self.__cb = None
         self.__volume = volume
 
-    def set_cb(self, cb):
-        self.__cb = cb
-
-    def get_cb(self):
+    @property
+    def cb(self):
         return self.__cb
 
-    def set_volume(self, volume):
-        self.__volume = volume
+    @cb.setter
+    def cb(self, cb):
+        self.__cb = cb
 
-    def get_volume(self):
+    @property
+    def volume(self):
         return self.__volume
 
-class MoneyR(BaseMoney):
-    def __init__(self, volume=0):
-        super().__init__(volume)
+    @volume.setter
+    def volume(self, volume):
+        self.__volume = volume
 
-class MoneyD(BaseMoney):
-    def __init__(self, volume=0):
-        super().__init__(volume)
+    def get_volumes(self, other):
+        if self.__cb is None:
+            raise ValueError("Неизвестен курс валют.")
+        if self.type_money is None:
+            raise ValueError("Неизвестен тип кошелька.")
 
-class MoneyE(BaseMoney):
-    def __init__(self, volume=0):
-        super().__init__(volume)
+        v1 = self.volume / self.cb.rates[self.type_money]
+        v2 = other.volume / other.cb.rates[other.type_money]
+        return v1, v2
+
+    def __eq__(self, other):
+        v1, v2 = self.get_volumes(other)
+        return abs(v1 - v2) < self.EPS
+
+    def __lt__(self, other):
+        v1, v2 = self.get_volumes(other)
+        return v1 < v2
+
+    def __le__(self, other):
+        v1, v2 = self.get_volumes(other)
+        return v1 <= v2
+
+
+class MoneyR(Money):
+    type_money = "rub"
+
+class MoneyD(Money):
+    type_money = "dollar"
+
+class MoneyE(Money):
+    type_money = "euro"
+
